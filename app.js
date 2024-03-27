@@ -7,12 +7,21 @@ const server = http.createServer((req, res) => {
     res.write("<html>");
     res.write("<head><title>Enter a message</title><head>");
     res.write(
-      '<body><form action="/message" method ="POST"><input type="text"> <button type ="submit">Send</button></form></body>'
+      '<body><form action="/message" method ="POST"><input type="text" name="message"> <button type ="submit">Send</button></form></body>'
     );
     res.write("</html>");
     return res.end();
   }
   if(url === '/message' && method === 'POST'){
+    const body = [];
+    req.on('data', (chunk) => {
+      console.log(chunk.toString());
+      body.push(chunk);
+    });
+    req.on('end', () => {
+      const parsedBody = Buffer.concat(body).toString();
+      console.log(parsedBody);
+    });
     fs.writeFileSync('message.text','DUMMY')
     res.statusCode= 302
     res.setHeader=('Location','/')
