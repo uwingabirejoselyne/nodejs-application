@@ -8,5 +8,8 @@
     "start": "node app.js"
   },
   "author": "Joselyne Uwingabire",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
 }
