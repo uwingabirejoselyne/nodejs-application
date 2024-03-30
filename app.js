@@ -4,11 +4,11 @@ const express = require("express");
 const app = express();
 app.use((req, res, next) => {
   console.log("In the middlware");
+  res.send('<h1>Sending middleware!</h1>')
   next()
 });
 app.use((req, res, next) => {
   console.log("next middleware");
-  next()
 });
 app.use(route)
 const server = http.createServer(app);
