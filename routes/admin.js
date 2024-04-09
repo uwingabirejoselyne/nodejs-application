@@ -9,8 +9,9 @@ router.get("/add-product", (req, res, next) => {
 });
 
 router.post("/add-product", (req, res, next) => {
-  product.push({title: req.body.title})
-  res.redirect("/");
+  // product.push({title: req.body.title})
+  // res.redirect("/");
+  res.sendFile(path.join(rootDir,"views","card.html"))
 });
 
 // module.exports = router;
