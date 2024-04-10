@@ -4,10 +4,9 @@ const rootDir = require("../util/path");
 const router = express.Router();
 const products = [];
 const fs = require("fs")
+const productControllers = require('../controllers/products')
 
-router.get("/add-product", (req, res, next) => {
-  res.sendFile(path.join(rootDir, "views", "add-product.html"));
-});
+router.get("/add-product", productControllers.getAddProduct);
 
 router.post("/add-product", (req, res, next) => {
   const title = req.body.title;
